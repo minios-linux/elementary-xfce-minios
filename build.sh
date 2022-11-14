@@ -1,10 +1,19 @@
 #!/bin/bash
 
+SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
+SOURCE=$SCRIPT_DIR/elementary-xfce/elementary-xfce/apps
+
+if apt-cache policy git | grep -q "Installed: (none)"; then
+    apt-get install -y git
+fi
+
 git submodule init
 git submodule update
-cp -R debian elementary-xfce/
+cd $SCRIPT_DIR/elementary-xfce
+git archive --format=tar.gz HEAD -o ../elementary-xfce-minios_0.17-2.orig.tar.gz
+cd $SCRIPT_DIR
+cp -R $SCRIPT_DIR/debian $SCRIPT_DIR/elementary-xfce/
 
-SOURCE=$(pwd)/elementary-xfce/elementary-xfce/apps
 for FOLDER in $(ls $SOURCE | grep -E "^[0-9]+$"); do
     cd $SOURCE/$FOLDER
     if [ -f accessories-calculator.png ]; then
@@ -28,6 +37,6 @@ for FOLDER in $(ls $SOURCE | grep -E "^[0-9]+$"); do
     fi
 done
 
-cd elementary-xfce
+cd $SCRIPT_DIR/elementary-xfce
 apt build-dep elementary-xfce
 dpkg-buildpackage -uc -us
