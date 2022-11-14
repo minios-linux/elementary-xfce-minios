@@ -10,7 +10,7 @@ fi
 git submodule init
 git submodule update
 cd $SCRIPT_DIR/elementary-xfce
-git archive --format=tar.gz HEAD -o ../elementary-xfce-minios_0.17-2.orig.tar.gz
+git archive --format=tar.gz HEAD -o ../elementary-xfce-minios_$(cd .. && dpkg-parsechangelog --show-field Version | sed "s/-1//g").orig.tar.gz
 cd $SCRIPT_DIR
 cp -R $SCRIPT_DIR/debian $SCRIPT_DIR/elementary-xfce/
 
