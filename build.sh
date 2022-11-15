@@ -9,33 +9,34 @@ fi
 
 git submodule init
 git submodule update
-cd $SCRIPT_DIR/elementary-xfce
-git archive --format=tar.gz HEAD -o ../elementary-xfce-minios_$(cd .. && dpkg-parsechangelog --show-field Version | sed "s/-1//g").orig.tar.gz
-cd $SCRIPT_DIR
+
 cp -R $SCRIPT_DIR/debian $SCRIPT_DIR/elementary-xfce/
 
 for FOLDER in $(ls $SOURCE | grep -E "^[0-9]+$"); do
     cd $SOURCE/$FOLDER
-    if [ -f accessories-calculator.png ]; then
-        ln -s accessories-calculator.png galculator.png
+    if [ -f accessories-calculator.svg ]; then
+        ln -s accessories-calculator.svg galculator.svg
     fi
-    if [ -f baobab.png ]; then
-        ln -s baobab.png org.gnome.baobab.png
-    elif [ -f org.gnome.baobab.png ]; then
-        ln -s org.gnome.baobab.png baobab.png
+    if [ -f baobab.svg ]; then
+        ln -s baobab.svg org.gnome.baobab.svg
+    elif [ -f org.gnome.baobab.svg ]; then
+        ln -s org.gnome.baobab.svg baobab.svg
     fi
-    if [ -f pdfshuffler.png ]; then
-        ln -s pdfshuffler.png com.github.jeromerobert.pdfarranger.png
-        ln -s pdfshuffler.png pdfarranger.png
-        ln -s pdfshuffler.png pdfmod.png
+    if [ -f pdfshuffler.svg ]; then
+        ln -s pdfshuffler.svg com.github.jeromerobert.pdfarranger.svg
+        ln -s pdfshuffler.svg pdfarranger.svg
+        ln -s pdfshuffler.svg pdfmod.svg
     fi
-    if [ -f ../../status/$FOLDER/sync-synchronizing.png ]; then
-        ln -s ../../status/$FOLDER/sync-synchronizing.png grsync.png
+    if [ -f ../../status/$FOLDER/sync-synchronizing.svg ]; then
+        ln -s ../../status/$FOLDER/sync-synchronizing.svg grsync.svg
     fi
-    if [ -f ../../devices/$FOLDER/drive-harddisk.png ]; then
-        ln -s ../../devices/$FOLDER/drive-harddisk.png gsmartcontrol.png
+    if [ -f ../../devices/$FOLDER/drive-harddisk.svg ]; then
+        ln -s ../../devices/$FOLDER/drive-harddisk.svg gsmartcontrol.svg
     fi
 done
+
+cd $SCRIPT_DIR
+tar --exclude-vcs -zcf elementary-xfce-minios_$(dpkg-parsechangelog --show-field Version | sed "s/-1//g").orig.tar.gz ./elementary-xfce
 
 cd $SCRIPT_DIR/elementary-xfce
 apt build-dep elementary-xfce
