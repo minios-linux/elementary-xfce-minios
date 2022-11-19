@@ -46,4 +46,6 @@ tar --exclude-vcs -zcf elementary-xfce-minios_$(dpkg-parsechangelog --show-field
 
 cd $SCRIPT_DIR/elementary-xfce
 apt build-dep elementary-xfce
-dpkg-buildpackage -uc -us
+dpkg-buildpackage -uc -
+cd $SCRIPT_DIR
+git submodule deinit -f elementary-xfce
