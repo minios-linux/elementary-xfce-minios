@@ -22,6 +22,12 @@ for FOLDER in $(ls $SOURCE | grep -E "^[0-9]+$"); do
     elif [ -f org.gnome.baobab.svg ]; then
         ln -s org.gnome.baobab.svg baobab.svg
     fi
+    if [ -f internet-mail.svg ]; then
+        ln -s internet-mail.svg emblem-mail.svg
+    fi
+    if [ -f preferences-system-power.svg ]; then
+        ln -s preferences-system-power.svg laptop-mode-tools.svg
+    fi
     if [ -f pdfshuffler.svg ]; then
         ln -s pdfshuffler.svg com.github.jeromerobert.pdfarranger.svg
         ln -s pdfshuffler.svg pdfarranger.svg
