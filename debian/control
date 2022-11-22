@@ -13,10 +13,10 @@ Vcs-Git: https://salsa.debian.org/xfce-extras-team/elementary-xfce.git
 Package: elementary-xfce-minios-icon-theme
 Architecture: all
 Depends: ${misc:Depends}
-Conflicts: adwaita-icon-theme, elementary-xfce-icon-theme
-Breaks: adwaita-icon-theme, elementary-xfce-icon-theme
-Replaces: adwaita-icon-theme, elementary-xfce-icon-theme
-Provides: adwaita-icon-theme, elementary-xfce-icon-theme
+Conflicts: elementary-xfce-icon-theme
+Breaks: elementary-xfce-icon-theme
+Replaces: elementary-xfce-icon-theme
+Provides: elementary-xfce-icon-theme
 Description: elementary icon theme modified for Xfce
  elementary-xfce is a fork of the elementary OS icon theme for Xfce and other
  desktops.

@@ -42,10 +42,10 @@ for FOLDER in $(ls $SOURCE | grep -E "^[0-9]+$"); do
 done
 
 cd $SCRIPT_DIR
-tar --exclude-vcs -zcf elementary-xfce-minios_$(dpkg-parsechangelog --show-field Version | sed "s/-2-2/-2/g").orig.tar.gz ./elementary-xfce
+tar --exclude-vcs -zcf elementary-xfce-minios_$(dpkg-parsechangelog --show-field Version | sed "s/-2~mos+1//g").orig.tar.gz ./elementary-xfce
 
 cd $SCRIPT_DIR/elementary-xfce
 apt build-dep elementary-xfce
-dpkg-buildpackage -uc -
+dpkg-buildpackage -uc -us
 cd $SCRIPT_DIR
 git submodule deinit -f elementary-xfce

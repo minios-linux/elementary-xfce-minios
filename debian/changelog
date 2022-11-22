@@ -1,14 +1,8 @@
-elementary-xfce-minios (0.17-2-2) UNRELEASED; urgency=medium
-
-  * Added icons for mail in buster and for laptop-mode-tools for all distributions.
-
- -- crims0n <https://minios.dev>  Sun, 20 Nov 2022 01:36:29 +0300
-
-elementary-xfce-minios (0.17-2-1) UNRELEASED; urgency=medium
+elementary-xfce-minios (0.17-2~mos+1) UNRELEASED; urgency=medium
 
   * Unreleased version 0.17.
 
- -- crims0n <https://minios.dev>  Mon, 14 Nov 2022 10:26:29 +0300
+ -- crims0n <crims0n@minios.dev>  Mon, 14 Nov 2022 10:26:29 +0300
 
 elementary-xfce (0.17-1) unstable; urgency=medium
 
