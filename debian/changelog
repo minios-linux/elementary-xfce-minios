@@ -1,6 +1,12 @@
-elementary-xfce-minios (0.17-2~mos+1) UNRELEASED; urgency=medium
+elementary-xfce-minios (0.18-1~mos+1) unstable; urgency=medium
 
-  * Unreleased version 0.17.
+  * New upstream version 0.18.
+
+ -- crims0n <crims0n@minios.dev>  Wed, 13 Sep 2023 22:57:49 +0300
+
+elementary-xfce-minios (0.17-2~mos+1) unstable; urgency=medium
+
+  * Theme adaptation for MiniOS.
 
  -- crims0n <crims0n@minios.dev>  Mon, 14 Nov 2022 10:26:29 +0300
 
