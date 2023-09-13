@@ -1,3 +1,9 @@
+elementary-xfce-minios (0.18-1~mos+2) unstable; urgency=medium
+
+  * Fixed bug when assigning icons for PCmanFM-QT.
+
+ -- crims0n <crims0n@minios.dev>  Thu, 14 Sep 2023 01:08:55 +0300
+
 elementary-xfce-minios (0.18-1~mos+1) unstable; urgency=medium
 
   * New upstream version 0.18.

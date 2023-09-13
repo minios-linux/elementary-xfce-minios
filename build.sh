@@ -50,6 +50,7 @@ for FOLDER in $(ls $ELEMENTARY_APPS | grep -E "^[0-9]+$"); do
 done
 
 for FOLDER in $(ls $ELEMENTARY_ACTIONS | grep -E "^[0-9]+$"); do
+    cd $ELEMENTARY_ACTIONS/$FOLDER
     lnsvg view-grid-symbolic.svg view-list.svg
     lnsvg view-dual-symbolic.svg view-preview.svg
     lnsvg view-compact-symbolic.svg view-list-text.svg
@@ -57,7 +58,7 @@ for FOLDER in $(ls $ELEMENTARY_ACTIONS | grep -E "^[0-9]+$"); do
 done
 
 cd $SCRIPT_DIR
-tar --exclude-vcs -zcf elementary-xfce-minios_$(dpkg-parsechangelog --show-field Version | sed "s/-1~mos+1//g").orig.tar.gz ./elementary-xfce
+tar --exclude-vcs -zcf elementary-xfce-minios_$(dpkg-parsechangelog --show-field Version | sed "s/-1~mos+2//g").orig.tar.gz ./elementary-xfce
 
 cd $SCRIPT_DIR/elementary-xfce
 apt build-dep elementary-xfce
