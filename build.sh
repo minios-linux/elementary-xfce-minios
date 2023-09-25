@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
 ELEMENTARY_APPS=$SCRIPT_DIR/elementary-xfce/elementary-xfce/apps
 ELEMENTARY_ACTIONS=$SCRIPT_DIR/elementary-xfce/elementary-xfce/actions
@@ -58,7 +60,7 @@ for FOLDER in $(ls $ELEMENTARY_ACTIONS | grep -E "^[0-9]+$"); do
 done
 
 cd $SCRIPT_DIR
-tar --exclude-vcs -zcf elementary-xfce-minios_$(dpkg-parsechangelog --show-field Version | sed "s/-1~mos+2//g").orig.tar.gz ./elementary-xfce
+tar --exclude-vcs -zcf elementary-xfce-minios_$(dpkg-parsechangelog --show-field Version | cut -d'-' -f1).orig.tar.gz ./elementary-xfce
 
 cd $SCRIPT_DIR/elementary-xfce
 apt build-dep elementary-xfce
