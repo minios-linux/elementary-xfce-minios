@@ -3,8 +3,12 @@
 SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
 ELEMENTARY_APPS=$SCRIPT_DIR/elementary-xfce/elementary-xfce/apps
 ELEMENTARY_ACTIONS=$SCRIPT_DIR/elementary-xfce/elementary-xfce/actions
-MINIOS_APPS=$SCRIPT_DIR/minios-icons/apps
-MINIOS_ACTIONS=$SCRIPT_DIR/minios-icons/actions
+ELEMENTARY_PANEL=$SCRIPT_DIR/elementary-xfce/elementary-xfce/panel
+ELEMENTARY_PANEL_DARK=$SCRIPT_DIR/elementary-xfce/elementary-xfce-dark/panel
+MINIOS_APPS=$SCRIPT_DIR/minios-icons/elementary-xfce/apps
+MINIOS_ACTIONS=$SCRIPT_DIR/minios-icons/elementary-xfce/actions
+MINIOS_PANEL=$SCRIPT_DIR/minios-icons/elementary-xfce/panel
+MINIOS_PANEL_DARK=$SCRIPT_DIR/minios-icons/elementary-xfce-dark/panel
 
 if apt-cache policy git | grep -q "Installed: (none)"; then
     apt-get install -y git
@@ -29,6 +33,14 @@ done
 
 for FOLDER in $(find $MINIOS_ACTIONS -type d -regex ".*/[0-9]+$"); do
     cp $FOLDER/*.svg $ELEMENTARY_ACTIONS/$(basename $FOLDER)
+done
+
+for FOLDER in $(find $MINIOS_PANEL -type d -regex ".*/[0-9]+$"); do
+    cp $FOLDER/*.svg $ELEMENTARY_PANEL/$(basename $FOLDER)
+done
+
+for FOLDER in $(find $MINIOS_PANEL_DARK -type d -regex ".*/[0-9]+$"); do
+    cp $FOLDER/*.svg $ELEMENTARY_PANEL_DARK/$(basename $FOLDER)
 done
 
 for FOLDER in $(find $ELEMENTARY_APPS -type d -regex ".*/[0-9]+$"); do
