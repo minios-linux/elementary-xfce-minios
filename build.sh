@@ -1,16 +1,11 @@
 #!/bin/bash
 
 SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
-ELEMENTARY_APPS=$SCRIPT_DIR/elementary-xfce/elementary-xfce/apps
-ELEMENTARY_ACTIONS=$SCRIPT_DIR/elementary-xfce/elementary-xfce/actions
-ELEMENTARY_PANEL=$SCRIPT_DIR/elementary-xfce/elementary-xfce/panel
-ELEMENTARY_PANEL_DARK=$SCRIPT_DIR/elementary-xfce/elementary-xfce-dark/panel
-MINIOS_APPS=$SCRIPT_DIR/minios-icons/elementary-xfce/apps
-MINIOS_ACTIONS=$SCRIPT_DIR/minios-icons/elementary-xfce/actions
-MINIOS_PANEL=$SCRIPT_DIR/minios-icons/elementary-xfce/panel
-MINIOS_PANEL_DARK=$SCRIPT_DIR/minios-icons/elementary-xfce-dark/panel
+ELEMENTARY_XFCE=$SCRIPT_DIR/elementary-xfce
+MINIOS_ICONS=$SCRIPT_DIR/minios-icons
 
-if apt-cache policy git | grep -q "Installed: (none)"; then
+if ! command -v git &>/dev/null; then
+    echo "git could not be found"
     apt-get install -y git
 fi
 
@@ -25,25 +20,11 @@ lnsvg() {
     fi
 }
 
-cp -R $SCRIPT_DIR/debian $SCRIPT_DIR/elementary-xfce/
+cp -R $SCRIPT_DIR/debian $ELEMENTARY_XFCE/
 
-for FOLDER in $(find $MINIOS_APPS -type d -regex ".*/[0-9]+$"); do
-    cp $FOLDER/*.svg $ELEMENTARY_APPS/$(basename $FOLDER)
-done
+rsync -a --include='*.svg' --include='*/' --exclude='*' $MINIOS_ICONS/ $ELEMENTARY_XFCE/
 
-for FOLDER in $(find $MINIOS_ACTIONS -type d -regex ".*/[0-9]+$"); do
-    cp $FOLDER/*.svg $ELEMENTARY_ACTIONS/$(basename $FOLDER)
-done
-
-for FOLDER in $(find $MINIOS_PANEL -type d -regex ".*/[0-9]+$"); do
-    cp $FOLDER/*.svg $ELEMENTARY_PANEL/$(basename $FOLDER)
-done
-
-for FOLDER in $(find $MINIOS_PANEL_DARK -type d -regex ".*/[0-9]+$"); do
-    cp $FOLDER/*.svg $ELEMENTARY_PANEL_DARK/$(basename $FOLDER)
-done
-
-for FOLDER in $(find $ELEMENTARY_APPS -type d -regex ".*/[0-9]+$"); do
+for FOLDER in $(find $ELEMENTARY_XFCE -type d -regex ".*/[0-9]+$"); do
     cd $FOLDER
     if [ -f baobab.svg ]; then
         lnsvg baobab.svg org.gnome.baobab.svg
@@ -63,7 +44,8 @@ for FOLDER in $(find $ELEMENTARY_APPS -type d -regex ".*/[0-9]+$"); do
     lnsvg ../../actions/$(basename $FOLDER)/edit-paste.svg qlipper.svg
 done
 
-for FOLDER in $(find $ELEMENTARY_ACTIONS -type d -regex ".*/[0-9]+$"); do
+for FOLDER in $(find $ELEMENTARY_XFCE/actions -type d -regex ".*/[0-9]+$"); do
+    cd $FOLDER
     lnsvg view-grid-symbolic.svg view-list.svg
     lnsvg view-dual-symbolic.svg view-preview.svg
     lnsvg view-compact-symbolic.svg view-list-text.svg
@@ -71,9 +53,9 @@ for FOLDER in $(find $ELEMENTARY_ACTIONS -type d -regex ".*/[0-9]+$"); do
 done
 
 cd $SCRIPT_DIR
-tar --exclude-vcs -zcf elementary-xfce-minios_$(dpkg-parsechangelog --show-field Version | sed "s/-1~mos+1//g").orig.tar.gz ./elementary-xfce
+tar --exclude-vcs -zcf elementary-xfce-minios_$(dpkg-parsechangelog --show-field Version | sed "s/-1+mos+1//g").orig.tar.gz ./elementary-xfce
 
-cd $SCRIPT_DIR/elementary-xfce
+cd $ELEMENTARY_XFCE
 apt build-dep elementary-xfce
 dpkg-buildpackage -uc -us
 cd $SCRIPT_DIR

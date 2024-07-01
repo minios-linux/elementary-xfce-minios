@@ -1,4 +1,4 @@
-elementary-xfce-minios (0.19-1~mos+1) unstable; urgency=medium
+elementary-xfce-minios (0.19-1+mos+1) unstable; urgency=medium
 
   * New upstream version 0.19.
   * Added icons for MiniOS module operations.
