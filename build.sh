@@ -47,6 +47,7 @@ for FOLDER in $(find $ELEMENTARY_XFCE -type d -regex ".*/[0-9]+$"); do
     lnsvg ./../actions/$(basename $FOLDER)/edit-paste.svg qlipper.svg
     lnsvg usb-receiver.svg unetbootin.svg
     lnsvg application-x-firmware.svg hardinfo.svg
+    lnsvg application-x-firmware.svg lshw-gtk.svg
     lnsvg ../../devices/$(basename $FOLDER)/fingerprint.svg org.gtkhash.gtkhash.svg
     lnsvg dialog-password.svg gpa.svg
     lnsvg system-lock-screen.svg keepassxc.svg
