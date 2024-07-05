@@ -27,7 +27,7 @@ cp -R $SCRIPT_DIR/debian $ELEMENTARY_XFCE/
 
 rsync -a --include='*.svg' --include='*/' --exclude='*' $MINIOS_ICONS/ $ELEMENTARY_XFCE/
 
-for FOLDER in $(find $ELEMENTARY_XFCE/elementary-xfce/actions -type d -regex ".*/[0-9]+$"); do
+for FOLDER in $(find $ELEMENTARY_XFCE/elementary-xfce/apps -type d -regex ".*/[0-9]+$"); do
     cd $FOLDER
     if [ -f baobab.svg ]; then
         lnsvg baobab.svg org.gnome.baobab.svg
