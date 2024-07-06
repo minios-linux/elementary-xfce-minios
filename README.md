@@ -1,2 +1,2 @@
 # elementary-xfce-minios
-elementary-xfce-minios Icon theme
+elementary-minios Icon theme
