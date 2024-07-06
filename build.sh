@@ -50,7 +50,7 @@ for FOLDER in $(find $ELEMENTARY_XFCE/elementary-xfce/apps -type d -regex ".*/[0
     lnsvg application-x-firmware.svg lshw-gtk.svg
     lnsvg ../../devices/$(basename $FOLDER)/fingerprint.svg org.gtkhash.gtkhash.svg
     lnsvg dialog-password.svg gpa.svg
-    lnsvg system-lock-screen.svg keepassxc.svg
+    lnsvg ../../actions/$(basename $FOLDER)/system-lock-screen.svg keepassxc.svg
     lnsvg ../../status/$(basename $FOLDER)/security-high.svg zuluCrypt.svg
 done
 
