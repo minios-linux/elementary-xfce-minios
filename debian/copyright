@@ -35,6 +35,7 @@ License: CC-BY-SA-2.0
 
 Files: debian/*
 Copyright: 2018-2022, Unit 193 <unit193@debian.org>
+Copyright: 2022-2024, crims0n <crims0n@minios.dev>
 License: GPL-2+
 
 Files: svgtopng/*

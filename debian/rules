@@ -3,7 +3,18 @@
 %:
 	dh $@
 
+override_dh_auto_install:
+	mkdir -p debian/elementary-minios-icon-theme/usr/share/icons
+	mv elementary-xfce elementary-minios
+	mv elementary-xfce-dark elementary-minios-dark
+	sed -i "s/Xfce/MiniOS/g" elementary-minios/index.theme
+	sed -i "s/Xfce/MiniOS/g" elementary-minios-dark/index.theme
+	sed -i "s/elementary-xfce/elementary-minios/g" elementary-minios-dark/index.theme
+	cp -r elementary-minios debian/elementary-minios-icon-theme/usr/share/icons
+	cp -r elementary-minios-dark debian/elementary-minios-icon-theme/usr/share/icons
+
 override_dh_install:
-	dh_install
 	find debian/ -name LICENSE -delete
 	find debian/ -name AUTHORS -delete
+	find debian/ -name CONTRIBUTORS -delete
+	find debian/ -name README.md -delete

@@ -23,8 +23,6 @@ lnsvg() {
     fi
 }
 
-cp -R $SCRIPT_DIR/debian $ELEMENTARY_XFCE/
-
 rsync -a --include='*.svg' --include='*/' --exclude='*' $MINIOS_ICONS/ $ELEMENTARY_XFCE/
 
 for FOLDER in $(find $ELEMENTARY_XFCE/elementary-xfce/apps -type d -regex ".*/[0-9]+$"); do
@@ -40,6 +38,8 @@ for FOLDER in $(find $ELEMENTARY_XFCE/elementary-xfce/apps -type d -regex ".*/[0
     lnsvg pdfshuffler.svg com.github.jeromerobert.pdfarranger.svg
     lnsvg pdfshuffler.svg pdfarranger.svg
     lnsvg pdfshuffler.svg pdfmod.svg
+    lnsvg utilities-terminal.png guake.png
+    lnsvg libreoffice-draw.png drawio.png
     lnsvg ../../status/$(basename $FOLDER)/sync-synchronizing.svg grsync.svg
     lnsvg ../../devices/$(basename $FOLDER)/drive-harddisk.svg gsmartcontrol.svg
     lnsvg utilities-system-monitor.svg qps.svg
@@ -62,11 +62,21 @@ for FOLDER in $(find $ELEMENTARY_XFCE/elementary-xfce/actions -type d -regex ".*
     lnsvg view-list-symbolic.svg view-list-detalis.svg
 done
 
+for SIZE in 16 24 32 48 64 96 128 symbolic; do
+    cd $ELEMENTARY_XFCE/elementary-xfce/mimes/$SIZE
+    if [ -f office-database.png ]; then
+        ln -s office-database.png application-x-sb.png
+    fi
+done
+ln -s mimes $ELEMENTARY_XFCE/elementary-xfce/mimetypes
+
 cd $SCRIPT_DIR
-tar --exclude-vcs -zcf elementary-xfce-minios_$(dpkg-parsechangelog --show-field Version | sed "s/-1+mos+1//g").orig.tar.gz ./elementary-xfce
+tar --exclude-vcs -zcf elementary-minios_$(dpkg-parsechangelog --show-field Version | sed "s/-1//g").orig.tar.gz ./elementary-xfce
+
+cp -R $SCRIPT_DIR/debian $ELEMENTARY_XFCE/
 
 cd $ELEMENTARY_XFCE
-apt build-dep elementary-xfce
+apt build-dep .
 dpkg-buildpackage -uc -us
 cd $SCRIPT_DIR
 git submodule deinit -f elementary-xfce
