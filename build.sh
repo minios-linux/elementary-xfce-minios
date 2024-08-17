@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -e
+set -x
 
 SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
 ELEMENTARY_XFCE=$SCRIPT_DIR/elementary-xfce
@@ -11,8 +12,11 @@ if ! command -v git &>/dev/null; then
     apt-get install -y git
 fi
 
-git submodule deinit -f elementary-xfce
-git submodule update --init ./
+if [ -d $ELEMENTARY_XFCE ]; then
+    rm -rf $ELEMENTARY_XFCE
+fi
+cd $SCRIPT_DIR
+git clone --depth 1 https://github.com/shimmerproject/elementary-xfce.git
 
 lnsvg() {
     local FILE LINK
@@ -63,12 +67,12 @@ for FOLDER in $(find $ELEMENTARY_XFCE/elementary-xfce/actions -type d -regex ".*
 done
 
 for SIZE in 16 24 32 48 64 96 128 symbolic; do
-    cd $ELEMENTARY_XFCE/elementary-xfce/mimes/$SIZE
+    cd $ELEMENTARY_XFCE/elementary-xfce/mimetypes/$SIZE
     if [ -f office-database.png ]; then
         ln -s office-database.png application-x-sb.png
     fi
 done
-ln -s mimes $ELEMENTARY_XFCE/elementary-xfce/mimetypes
+#ln -s mimes $ELEMENTARY_XFCE/elementary-xfce/mimetypes
 
 cd $SCRIPT_DIR
 tar --exclude-vcs -zcf elementary-minios_$(dpkg-parsechangelog --show-field Version | sed "s/-1//g").orig.tar.gz ./elementary-xfce
@@ -79,4 +83,4 @@ cd $ELEMENTARY_XFCE
 apt build-dep .
 dpkg-buildpackage -uc -us
 cd $SCRIPT_DIR
-git submodule deinit -f elementary-xfce
+rm -rf $ELEMENTARY_XFCE

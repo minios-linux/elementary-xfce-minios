@@ -10,5 +10,9 @@ Homepage: https://github.com/shimmerproject/elementary-xfce
 Package: elementary-minios-icon-theme
 Architecture: all
 Depends: ${misc:Depends}
+Conflicts: adwaita-icon-theme
+Breaks: adwaita-icon-theme
+Replaces: adwaita-icon-theme
+Provides: adwaita-icon-theme
 Description: elementary icon theme modified for MiniOS
  elementary-minios is a fork of the elementary-xfce.
