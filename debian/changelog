@@ -1,3 +1,9 @@
+elementary-minios (0.19-2) unstable; urgency=medium
+
+  * Fixed icons for Debian 10.
+
+ -- crims0n <crims0n@minios.dev>  Sun, 25 Aug 2024 18:19:37 +0300
+
 elementary-minios (0.19-1) unstable; urgency=medium
 
   * New upstream version 0.19.

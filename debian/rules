@@ -3,6 +3,9 @@
 %:
 	dh $@
 
+override_dh_auto_build:
+	@echo "Skipping all build steps"
+
 override_dh_auto_install:
 	mkdir -p debian/elementary-minios-icon-theme/usr/share/icons
 	mv elementary-xfce elementary-minios
@@ -18,3 +21,6 @@ override_dh_install:
 	find debian/ -name AUTHORS -delete
 	find debian/ -name CONTRIBUTORS -delete
 	find debian/ -name README.md -delete
+
+override_dh_auto_test:
+	@echo "Skipping all test steps"

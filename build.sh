@@ -1,7 +1,6 @@
 #!/bin/bash
 
 set -e
-set -x
 
 SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
 ELEMENTARY_XFCE=$SCRIPT_DIR/elementary-xfce
@@ -56,6 +55,22 @@ for FOLDER in $(find $ELEMENTARY_XFCE/elementary-xfce/apps -type d -regex ".*/[0
     lnsvg dialog-password.svg gpa.svg
     lnsvg ../../actions/$(basename $FOLDER)/system-lock-screen.svg keepassxc.svg
     lnsvg ../../status/$(basename $FOLDER)/security-high.svg zuluCrypt.svg
+    # Legacy
+    lnsvg org.xfce.ristretto.svg ristretto.svg
+    lnsvg system-file-manager.svg Thunar.svg
+    lnsvg ../../devices/$(basename $FOLDER)/fingerprint.svg gtkhash.svg
+    lnsvg ../../categories$(basename $FOLDER)/preferences.system.notifications.svg xfce4.notifyd.svg
+    lnsvg org.xfce.panel.svg xfce4-panel.svg
+    lnsvg preferences-system-power.svg xfce4-power-manager-settings.svg
+    lnsvg org.xfce.screenshooter.svg applets-screenshooter.svg
+    lnsvg session-properties.svg xfce4-session.svg
+    lnsvg ../../categories/$(basename $FOLDER)/preferences-system-notifications.svg xfce4-notifyd.svg
+    lnsvg preferences-system-windows.svg xfwm4.svg
+    lnsvg preferences-desktop-effects.svg wmtweaks.svg
+    lnsvg org.xfce.workspaces.svg xfce4-workspaces.svg
+    lnsvg org.wireshark.Wireshark.svg wireshark.svg
+    lnsvg org.xfce.panel.whiskermenu.svg xfce4-whiskermenu.svg
+    lnsvg menu-editor.svg xfce4-menueditor.svg
 done
 
 for FOLDER in $(find $ELEMENTARY_XFCE/elementary-xfce/actions -type d -regex ".*/[0-9]+$"); do
@@ -75,7 +90,7 @@ done
 #ln -s mimes $ELEMENTARY_XFCE/elementary-xfce/mimetypes
 
 cd $SCRIPT_DIR
-tar --exclude-vcs -zcf elementary-minios_$(dpkg-parsechangelog --show-field Version | sed "s/-1//g").orig.tar.gz ./elementary-xfce
+tar --exclude-vcs -zcf elementary-minios_$(dpkg-parsechangelog --show-field Version | sed "s/-[^-]*$//").orig.tar.gz ./elementary-xfce
 
 cp -R $SCRIPT_DIR/debian $ELEMENTARY_XFCE/
 
