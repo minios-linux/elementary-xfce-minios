@@ -15,7 +15,7 @@ if [ -d $ELEMENTARY_XFCE ]; then
     rm -rf $ELEMENTARY_XFCE
 fi
 cd $SCRIPT_DIR
-git clone --depth 1 https://github.com/shimmerproject/elementary-xfce.git
+git clone --depth 1 -b v0.20 https://github.com/shimmerproject/elementary-xfce.git
 
 lnsvg() {
     local FILE LINK
@@ -41,8 +41,8 @@ for FOLDER in $(find $ELEMENTARY_XFCE/elementary-xfce/apps -type d -regex ".*/[0
     lnsvg pdfshuffler.svg com.github.jeromerobert.pdfarranger.svg
     lnsvg pdfshuffler.svg pdfarranger.svg
     lnsvg pdfshuffler.svg pdfmod.svg
-    lnsvg utilities-terminal.png guake.png
-    lnsvg libreoffice-draw.png drawio.png
+    lnsvg utilities-terminal.svg guake.svg
+    lnsvg libreoffice-draw.svg drawio.svg
     lnsvg ../../status/$(basename $FOLDER)/sync-synchronizing.svg grsync.svg
     lnsvg ../../devices/$(basename $FOLDER)/drive-harddisk.svg gsmartcontrol.svg
     lnsvg utilities-system-monitor.svg qps.svg
@@ -83,11 +83,10 @@ done
 
 for SIZE in 16 24 32 48 64 96 128 symbolic; do
     cd $ELEMENTARY_XFCE/elementary-xfce/mimetypes/$SIZE
-    if [ -f office-database.png ]; then
-        ln -s office-database.png application-x-sb.png
+    if [ -f office-database.svg ]; then
+        ln -s office-database.svg application-x-sb.svg
     fi
 done
-#ln -s mimes $ELEMENTARY_XFCE/elementary-xfce/mimetypes
 
 cd $SCRIPT_DIR
 tar --exclude-vcs -zcf elementary-minios_$(dpkg-parsechangelog --show-field Version | sed "s/-[^-]*$//").orig.tar.gz ./elementary-xfce
