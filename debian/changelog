@@ -1,3 +1,11 @@
+elementary-minios (0.20-2) unstable; urgency=medium
+
+  * Removed the HDSentinel icon.
+  * Added QDiskInfo icon.
+  * Added PDFShuffler icon.
+
+ -- crims0n <crims0n@minios.dev>  Tue, 17 Dec 2024 00:48:45 +0300
+
 elementary-minios (0.20-1) unstable; urgency=medium
 
   * New upstream version 0.20.
