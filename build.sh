@@ -15,7 +15,7 @@ if [ -d $ELEMENTARY_XFCE ]; then
     rm -rf $ELEMENTARY_XFCE
 fi
 cd $SCRIPT_DIR
-git clone --depth 1 -b v0.20 https://github.com/shimmerproject/elementary-xfce.git
+git clone --depth 1 -b v0.21 https://github.com/shimmerproject/elementary-xfce.git
 
 lnsvg() {
     local FILE LINK
