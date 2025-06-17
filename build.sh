@@ -22,6 +22,9 @@ lnsvg() {
     FILE=$1
     LINK=$2
     if [ -f $FILE ]; then
+        if [ -f $LINK ]; then
+            rm -f $LINK
+        fi
         ln -s $FILE $LINK
     fi
 }
@@ -35,6 +38,9 @@ for FOLDER in $(find $ELEMENTARY_XFCE/elementary-xfce/apps -type d -regex ".*/[0
     elif [ -f org.gnome.baobab.svg ]; then
         lnsvg org.gnome.baobab.svg baobab.svg
     fi
+    lnsvg ../../places/$(basename $FOLDER)/distributor-logo-minios.svg org.xfce.panel.applicationsmenu.svg
+    lnsvg usb-creator-gtk.svg minios-installer.svg
+    lnsvg menulibre.svg minios-configurator.svg
     lnsvg accessories-calculator.svg galculator.svg
     lnsvg internet-mail.svg emblem-mail.svg
     lnsvg preferences-system-power.svg laptop-mode-tools.svg
@@ -79,6 +85,11 @@ for FOLDER in $(find $ELEMENTARY_XFCE/elementary-xfce/actions -type d -regex ".*
     lnsvg view-dual-symbolic.svg view-preview.svg
     lnsvg view-compact-symbolic.svg view-list-text.svg
     lnsvg view-list-symbolic.svg view-list-detalis.svg
+done
+
+for FOLDER in $(find $ELEMENTARY_XFCE/elementary-xfce/places -type d -regex ".*/[0-9]+$"); do
+    cd $FOLDER
+    lnsvg distributor-logo-minios.svg distributor-logo.svg
 done
 
 for SIZE in 16 24 32 48 64 96 128 symbolic; do
