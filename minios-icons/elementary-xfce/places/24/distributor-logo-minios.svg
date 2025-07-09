@@ -28,7 +28,7 @@
      id="namedview35"
      showgrid="false"
      inkscape:zoom="16.520833"
-     inkscape:cx="5.6897857"
+     inkscape:cx="5.7200506"
      inkscape:cy="13.104666"
      inkscape:window-x="0"
      inkscape:window-y="0"
@@ -158,12 +158,12 @@
     </rdf:RDF>
   </metadata>
   <g
-     transform="translate(0,-8)"
+     transform="matrix(1.0909091,0,0,1.0909091,-1.0909105,-9.8181823)"
      id="layer1">
     <path
        d="m 22,29 c 0,1.656854 -4.477153,3 -10,3 -5.5228476,0 -10,-1.343146 -10,-3 0,-1.656854 4.4771524,-3 10,-3 5.522847,0 10,1.343146 10,3 z"
        id="path8836-1"
-       style="display:inline;overflow:visible;visibility:visible;opacity:0.3;fill:url(#radialGradient3120);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;marker:none" />
+       style="display:none;overflow:visible;visibility:visible;opacity:0.3;fill:url(#radialGradient3120);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;marker:none" />
     <g
        style="stroke-width:2.88033"
        transform="matrix(0.375,0,0,0.32142723,5.8125e-7,10.428069)"
@@ -192,7 +192,7 @@
   </g>
   <g
      id="g1"
-     transform="matrix(0.50380601,0,0,0.49801793,-0.01918897,0.08603632)"
+     transform="matrix(0.54960656,0,0,0.54329229,-1.1118439,-0.9970517)"
      inkscape:label="g1">
     <path
        id="path12-2-2-1"

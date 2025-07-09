@@ -1,3 +1,15 @@
+elementary-minios (0.21-3) unstable; urgency=medium
+
+  * Update distributor logo SVG files for MinIOS icons
+    - Adjusted the positioning and gradient transformations in the
+      distributor-logo-minios.svg file for better visual alignment
+    - Created a new SVG file distributor-logo-minios-small.svg for a smaller
+      icon representation.
+    - Updated the distributor-logo-minios.svg file to refine gradient
+      transformations and improve overall aesthetics.
+
+ -- crims0n <crims0n@minios.dev>  Wed, 09 Jul 2025 22:49:59 +0300
+
 elementary-minios (0.21-2) unstable; urgency=medium
 
   * Update distributor logo SVG files
