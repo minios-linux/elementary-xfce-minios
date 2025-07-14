@@ -1,6 +1,9 @@
 elementary-minios (0.21-5) UNRELEASED; urgency=medium
 
   * Add Clonezilla icons at 32, 64, 96 and 128 sizes
+  * Add Audacity, Double Commander, Gparted, RAW Therapee, uGet, VLC,
+    OBS Studio, Android File Transfer at 48 size
+  * Update Hardinfo2 icon
 
  -- crims0n <crims0n@minios.dev>  Fri, 11 Jul 2025 21:29:07 +0300
 

@@ -92,6 +92,7 @@ configure-apps: sync-icons
 		$(call lnsvg,org.wireshark.Wireshark.svg,wireshark.svg); \
 		$(call lnsvg,org.xfce.panel.whiskermenu.svg,xfce4-whiskermenu.svg); \
 		$(call lnsvg,menu-editor.svg,xfce4-menueditor.svg); \
+		$(call lnsvg,hardinfo.svg,hardinfo2.svg); \
 	done
 
 # Configure actions icons
