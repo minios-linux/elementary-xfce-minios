@@ -1,15 +1,16 @@
-elementary-minios (0.21-5) UNRELEASED; urgency=medium
+elementary-minios (0.21-5) unstable; urgency=medium
 
   * Add Clonezilla icons at 32, 64, 96 and 128 sizes
   * Add Audacity, Double Commander, Gparted, RAW Therapee, uGet, VLC,
-    OBS Studio, Android File Transfer at 48 size
+    OBS Studio, Android File Transfer, Czkawka icons at 48 size
   * Update Hardinfo2 icon
 
- -- crims0n <crims0n@minios.dev>  Fri, 11 Jul 2025 21:29:07 +0300
+ -- crims0n <crims0n@minios.dev>  Mon, 14 Jul 2025 17:14:24 +0300
 
 elementary-minios (0.21-4) unstable; urgency=medium
 
-  * Add Bleachbit, Rescuezilla icons at 32, 64, 96 and 128 sizes
+  * Add Bleachbit icons at 32, 48, 64, 96 and 128 sizes, Rescuezilla icon at
+    48 size
   * Change PDFShuffler icon
 
  -- crims0n <crims0n@minios.dev>  Fri, 11 Jul 2025 21:04:54 +0300
