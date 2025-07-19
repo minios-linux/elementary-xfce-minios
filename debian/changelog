@@ -1,3 +1,9 @@
+elementary-minios (0.21-6) unstable; urgency=medium
+
+  * Add DiskUtility/Mintstick icon at 48 size
+
+ -- crims0n <crims0n@minios.dev>  Sat, 19 Jul 2025 23:29:14 +0300
+
 elementary-minios (0.21-5) unstable; urgency=medium
 
   * Add Clonezilla icons at 32, 64, 96 and 128 sizes

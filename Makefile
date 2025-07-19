@@ -56,6 +56,7 @@ configure-apps: sync-icons
 		fi; \
 		$(call lnsvg,../../places/$$(basename $$FOLDER)/distributor-logo-minios.svg,org.xfce.panel.applicationsmenu.svg); \
 		$(call lnsvg,usb-creator-gtk.svg,minios-installer.svg); \
+		$(call lnsvg,driveutility.svg,mintstick.svg); \
 		$(call lnsvg,menulibre.svg,minios-configurator.svg); \
 		$(call lnsvg,accessories-calculator.svg,galculator.svg); \
 		$(call lnsvg,internet-mail.svg,emblem-mail.svg); \
