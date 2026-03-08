@@ -1,3 +1,9 @@
+elementary-minios (0.22-1) unstable; urgency=medium
+
+  * New upstream version 0.22
+
+ -- crims0n <crims0n@minios.dev>  Fri, 27 Feb 2026 21:01:34 +0300
+
 elementary-minios (0.21-7) unstable; urgency=medium
 
   * Add media-floppy icon at 64

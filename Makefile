@@ -39,7 +39,7 @@ clone: check-deps
 		rm -rf $(ELEMENTARY_XFCE); \
 	fi
 	cd $(BUILD_DIR)
-	git clone --depth 1 -b v0.21 https://github.com/shimmerproject/elementary-xfce.git
+	git clone --depth 1 -b v0.22 https://github.com/shimmerproject/elementary-xfce.git
 
 # Sync icons
 sync-icons: clone
